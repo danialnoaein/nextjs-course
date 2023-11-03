@@ -40,6 +40,10 @@ Code splitting is essential for optimizing the performance of web applications. 
 
 Next.js provides a number of features to help you optimize your application's resources, including images, fonts, JavaScript and more.
 
+### Developing APIs
+
+Next.js API feature is a powerful tool that allows you to build and expose APIs from within your Next.js application. It is server-side only and provides features like SSR, routing, data fetching, and authentication.
+
 ### Strong Ecosystem & Extensibility
 
 Next.js is highly extensible and provides a wide range of APIs and plugins to customize and enhance your development process. You can add serverless functions, middleware, and other custom features to your Next.js project.  
