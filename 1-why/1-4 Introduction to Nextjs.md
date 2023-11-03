@@ -38,7 +38,7 @@ Code splitting is essential for optimizing the performance of web applications. 
 
 ### Resource Optimization
 
-Next.js provides a number of features to help you optimize your application's resources, including images, fonts, JavaScript and more.
+Next.js provides a number of features to help you optimize your application's resources, including images, fonts, scripts and more.
 
 ### Developing APIs
 
