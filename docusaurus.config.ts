@@ -17,7 +17,7 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "danialnoaein", // Usually your GitHub org/user name.
   projectName: "nextjs-course", // Usually your repo name.
-  deploymentBranch: "gh-pages", // Usually your repo name.
+  deploymentBranch: "main", // Usually your repo name.
   trailingSlash: false,
 
   onBrokenLinks: "throw",
