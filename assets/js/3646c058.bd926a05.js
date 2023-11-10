@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknextjs_course=self.webpackChunknextjs_course||[]).push([[6310],{2545:e=>{e.exports=JSON.parse('{"label":"facebook","permalink":"/nextjs-course/blog/tags/facebook","allTagsPath":"/nextjs-course/blog/tags","count":1,"unlisted":false}')}}]);
