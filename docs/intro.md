@@ -2,25 +2,25 @@
 sidebar_position: 1
 ---
 
-# NextJS Crash Course
+# Next.js Crash Course
 
-This a crash course for learn NextJS to build single page applications with a complete client side framework.
+This a crash course for learn Next.js to build single page applications with a complete client side framework.
 
 ## Topics
 
 ### Why?
 
-This topic reviews why NextJS invented and it solved what problems.
+This topic reviews why Next.js invented and it solved what problems.
 
 - Brief History of SPAs
 - Reasons for creation of React
 - Issues with React
-- Introduction to NextJS
-- How NextJS works
+- Introduction to Next.js
+- How Next.js works
 
 ### What?
 
-Here reviews what NextJS provides to solve react problems to be a complete framework.
+Here reviews what Next.js provides to solve react problems to be a complete framework.
 
 - Folder Structure
 - Rounting
@@ -30,11 +30,11 @@ Here reviews what NextJS provides to solve react problems to be a complete frame
 
 ### How?
 
-In this section will use NextJS features with write some codes.
+In this section will use Next.js features with write some codes.
 
 - Page router & App router
 - SSG, ISR & SSR Implementation
-- Calling APIs in NextJS
+- Calling APIs in Next.js
 - Using the Image Component
 - Adding Custom Fonts
 - Deploying SSG & SSR Applications

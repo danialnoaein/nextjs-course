@@ -3,7 +3,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "NextJS Crash Course",
+  title: "Next.js Crash Course",
   tagline: "A short road to learning the framework",
   favicon: "img/favicon.ico",
 
@@ -60,9 +60,9 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "NextJS Crash Course",
+      title: "Next.js Crash Course",
       logo: {
-        alt: "NextJS Logo",
+        alt: "Next.js Logo",
         src: "img/nextjslogo.png",
       },
       items: [
