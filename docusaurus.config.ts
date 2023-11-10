@@ -8,7 +8,7 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://github.com/danialnoaein/",
+  url: "https://danialnoaein.github.io/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: `/nextjs-course/`,
@@ -17,6 +17,7 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "danialnoaein", // Usually your GitHub org/user name.
   projectName: "nextjs-course", // Usually your repo name.
+  deploymentBranch: "main", // Usually your repo name.
   trailingSlash: false,
 
   onBrokenLinks: "throw",
