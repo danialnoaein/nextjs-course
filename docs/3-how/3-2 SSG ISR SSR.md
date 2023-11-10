@@ -1,6 +1,6 @@
 # SSG, ISR & SSR Implementation
 
-Certainly! Let's walk through hands-on examples of Server-Side Rendering (SSR), Static Site Generation (SSG), and Incremental Static Regeneration (ISR) using Next.js.
+Let's walk through hands-on examples of Server-Side Rendering (SSR), Static Site Generation (SSG), and Incremental Static Regeneration (ISR) using Next.js.
 
 ### 1. Server-Side Rendering (SSR):
 
