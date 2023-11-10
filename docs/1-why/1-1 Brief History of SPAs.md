@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Brief History of SPAs
 
 The evolution of web development has seen significant changes and advancements over the years, leading to the need for single-page applications (SPAs). Here's a brief overview of this evolution:
