@@ -1,4 +1,4 @@
-# Calling APIs in NextJS
+# Calling APIs in Next.js
 
 To fetch data from APIs and display it in a Next.js application, you can use the `fetch` API or a library like Axios. I'll demonstrate using the `fetch` API for simplicity. Let's assume you want to fetch and display data from the JSONPlaceholder API.
 

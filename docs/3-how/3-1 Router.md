@@ -1,145 +1,57 @@
 # Page router & App router
 
-In a Next.js application, you can implement page navigation using the built-in routing system. The primary tools for navigation are the `Link` component and the `useRouter` hook. Here's a step-by-step guide to implementing page navigation:
+Next.js provides a powerful and easy-to-use routing system that allows you to define routes and navigate between pages within your application.
+In this section we'll dive into Next.js main routing systems, Pages Router and App Router.
 
-1. **Create Pages:**
+## Pages Router
 
-   - Create multiple pages in the `pages` directory. For example, let's create two pages: `index.js` and `about.js`.
+Next.js employs a file system-based routing system, where the structure of the `pages` directory dictates the routes in your application. 
 
-   ```jsx
-   // pages/index.js
-   function Home() {
-     return <h1>Home Page</h1>;
-   }
+For more details about Pages Router read [Routing](/docs/what/2-3%20Routing#pages-router).
 
-   export default Home;
-   ```
+## App Router
 
-   ```jsx
-   // pages/about.js
-   function About() {
-     return <h1>About Page</h1>;
-   }
+In version 13, Next.js introduced a new App Router built on React Server Components, which supports shared layouts, nested routing, loading states, error handling, and more.
 
-   export default About;
-   ```
+The App directory works in a new directory names `app`. It uses a file-system based router like Pages Router but unlike that specific files in the `app` directory will define your application's routes not all the files.
 
-2. **Use the `Link` Component:**
+For more details about App Router read [Routing](/docs/what/2-3%20Routing#app-router).
 
-   - Import the `Link` component from `next/link` in the component where you want to create navigation links.
-   - Use the `Link` component to wrap the elements that should trigger navigation.
 
-   ```jsx
-   // components/Navigation.js
-   import Link from "next/link";
+## Pages Router or App Router?
 
-   function Navigation() {
-     return (
-       <nav>
-         <Link href='/'>
-           <a>Home</a>
-         </Link>
-         {" | "}
-         <Link href='/about'>
-           <a>About</a>
-         </Link>
-       </nav>
-     );
-   }
+After Next.js introduced the App Router an important question came up to minds? Which one should we pick not?
 
-   export default Navigation;
-   ```
+Next.js has released the App Router without any breaking changes with Pages Router, so you still can use `page` directory, but The App Router takes priority over the Pages Router. 
 
-3. **Create a Layout Component:**
+> **Note:** Routes across directories should not resolve to the same URL path and will cause a build-time error to prevent a conflict. 
 
-   - To keep the navigation consistent across pages, you might want to create a layout component that includes the navigation.
+Pages and App routers can be used together. Common sense would suggest you only use both when migrating from Pages Router to the new App Router. Otherwise, in a new project, you ought to stick to one router for consistency and interoperability between your pages and components unless you have special circumstances where you need features from both paradigms.
 
-   ```jsx
-   // components/Layout.js
-   import Navigation from "./Navigation";
+Pick a router which works best for your app. Although `pages` will eventually be sunset, Next has promised to maintain it for a long time. Remember features like server-side components, layouts, templates, error components, loading components, etc. are not available in the pages directory so if you are going to use them you should create those routes in `app` directory. Besides using `app` directory will enable you to use latest features of React Server Components.
 
-   function Layout({ children }) {
-     return (
-       <div>
-         <Navigation />
-         <main>{children}</main>
-       </div>
-     );
-   }
+Here is a brief comparison:
 
-   export default Layout;
-   ```
+| Pages Router            | App Router               |
+|:------------------------|:-------------------------|
+| Simpler and easy-to-use | More flexible            |
+| Good for smaller apps   | Better for larger apps   |
+| Good for static pages   | Better for dynamic pages |
 
-4. **Update Page Components:**
 
-   - Import the layout component and wrap the page content with it.
+For a better decision you can consider the following:
+- Use the Pages directory if you want simple and straightforward routing, automatic routing based on file structure, and easy creation of pages as React components.
+- Use the App directory if you need more advanced routing and layout capabilities, want to leverage React’s server components for better performance, and want to customize your app’s behavior or layout.
+- Consider using both directories if you want to incrementally adopt the App directory while still using the Pages directory for simpler pages.
+- Keep in mind that the App directory is experimental and not yet considered stable for production use, and may require additional learning and understanding of the new paradigm.
 
-   ```jsx
-   // pages/index.js
-   import Layout from "../components/Layout";
+#### Server Components and benefits of Server Rendering
 
-   function Home() {
-     return (
-       <Layout>
-         <h1>Home Page</h1>
-       </Layout>
-     );
-   }
-
-   export default Home;
-   ```
-
-   ```jsx
-   // pages/about.js
-   import Layout from "../components/Layout";
-
-   function About() {
-     return (
-       <Layout>
-         <h1>About Page</h1>
-       </Layout>
-     );
-   }
-
-   export default About;
-   ```
-
-5. **Use the `useRouter` Hook for Programmatic Navigation:**
-
-   - Import the `useRouter` hook from `next/router` to enable programmatic navigation.
-
-   ```jsx
-   // pages/index.js
-   import { useRouter } from "next/router";
-   import Layout from "../components/Layout";
-
-   function Home() {
-     const router = useRouter();
-
-     const handleButtonClick = () => {
-       router.push("/about");
-     };
-
-     return (
-       <Layout>
-         <h1>Home Page</h1>
-         <button onClick={handleButtonClick}>Go to About</button>
-       </Layout>
-     );
-   }
-
-   export default Home;
-   ```
-
-   - The `router.push` method allows you to navigate to a different page programmatically.
-
-6. **Start the Development Server:**
-
-   - Run `npm run dev` or the appropriate command for your project setup to start the Next.js development server.
-
-7. **Visit the Application:**
-   - Open your browser and visit `http://localhost:3000`. You should see the Home page.
-   - Click on the "About" link in the navigation to navigate to the About page.
-   - Click the button to navigate back to the Home page.
-
-By following these steps, you've implemented page navigation using Next.js's routing system. The `Link` component provides a declarative way to create navigation links, and the `useRouter` hook allows for programmatic navigation. The layout component ensures consistent navigation across pages.
+Main feature of App Router is that it uses React Server Components. There are a couple of benefits to doing the rendering work on the server, according to [official Next.js documentation](https://nextjs.org/docs/app/building-your-application/rendering/server-components#benefits-of-server-rendering) this includes:
+>- **Data Fetching:** Server Components allow you to move data fetching to the server, closer to your data source. This can improve performance by reducing time it takes to fetch data needed for rendering, and the amount of requests the client needs to make.
+>- **Security:** Server Components allow you to keep sensitive data and logic on the server, such as tokens and API keys, without the risk of exposing them to the client.
+>- **Caching:** By rendering on the server, the result can be cached and reused on subsequent requests and across users. This can improve performance and reduce cost by reducing the amount of rendering and data fetching done on each request.
+>- **Bundle Sizes:** Server Components allow you to keep large dependencies that previously would impact the client JavaScript bundle size on the server. This is beneficial for users with slower internet or less powerful devices, as the client does not have to download, parse and execute any JavaScript for Server Components.
+>- **Initial Page Load and First Contentful Paint (FCP)**: On the server, we can generate HTML to allow users to view the page immediately, without waiting for the client to download, parse and execute the JavaScript needed to render the page.
+>- **Search Engine Optimization and Social Network Shareability:** The rendered HTML can be used by search engine bots to index your pages and social network bots to generate social card previews for your pages.
+>- **Streaming:** Server Components allow you to split the rendering work into chunks and stream them to the client as they become ready. This allows the user to see parts of the page earlier without having to wait for the entire page to be rendered on the server.
